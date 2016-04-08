@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		854F5E601CB78AAC00B2A9D3 /* DrapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 854F5E5F1CB78AAC00B2A9D3 /* DrapLayer.m */; };
 		85CBC7481CB665C5001528DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CBC7471CB665C5001528DF /* main.m */; };
 		85CBC74B1CB665C5001528DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CBC74A1CB665C5001528DF /* AppDelegate.m */; };
 		85CBC74E1CB665C5001528DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CBC74D1CB665C5001528DF /* ViewController.m */; };
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		854F5E581CB789A400B2A9D3 /* AnimationDrapping-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnimationDrapping-Bridging-Header.h"; sourceTree = "<group>"; };
+		854F5E5E1CB78AAC00B2A9D3 /* DrapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrapLayer.h; sourceTree = "<group>"; };
+		854F5E5F1CB78AAC00B2A9D3 /* DrapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrapLayer.m; sourceTree = "<group>"; };
 		85CBC7431CB665C5001528DF /* AnimationDrapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationDrapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CBC7471CB665C5001528DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		85CBC7491CB665C5001528DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,11 +109,14 @@
 				85CBC74A1CB665C5001528DF /* AppDelegate.m */,
 				85CBC74C1CB665C5001528DF /* ViewController.h */,
 				85CBC74D1CB665C5001528DF /* ViewController.m */,
+				854F5E5E1CB78AAC00B2A9D3 /* DrapLayer.h */,
+				854F5E5F1CB78AAC00B2A9D3 /* DrapLayer.m */,
 				85CBC74F1CB665C5001528DF /* Main.storyboard */,
 				85CBC7521CB665C5001528DF /* Assets.xcassets */,
 				85CBC7541CB665C5001528DF /* LaunchScreen.storyboard */,
 				85CBC7571CB665C5001528DF /* Info.plist */,
 				85CBC7461CB665C5001528DF /* Supporting Files */,
+				854F5E581CB789A400B2A9D3 /* AnimationDrapping-Bridging-Header.h */,
 			);
 			path = AnimationDrapping;
 			sourceTree = "<group>";
@@ -273,6 +280,7 @@
 				85CBC74E1CB665C5001528DF /* ViewController.m in Sources */,
 				85CBC74B1CB665C5001528DF /* AppDelegate.m in Sources */,
 				85CBC7481CB665C5001528DF /* main.m in Sources */,
+				854F5E601CB78AAC00B2A9D3 /* DrapLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,10 +423,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AnimationDrapping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.greatGate.AnimationDrapping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AnimationDrapping/AnimationDrapping-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -426,10 +437,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AnimationDrapping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.greatGate.AnimationDrapping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AnimationDrapping/AnimationDrapping-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -498,6 +511,7 @@
 				85CBC7721CB665C5001528DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85CBC7731CB665C5001528DF /* Build configuration list for PBXNativeTarget "AnimationDrappingTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +520,7 @@
 				85CBC7751CB665C5001528DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85CBC7761CB665C5001528DF /* Build configuration list for PBXNativeTarget "AnimationDrappingUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +529,7 @@
 				85CBC7781CB665C5001528DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
