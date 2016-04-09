@@ -32,20 +32,10 @@
 }
 - (void)drawInContext:(CGContextRef)ctx {
     BOOL onStation = (_progress - 0.5) > 0;
-    CGFloat offset1 = 0.5 * CGRectGetWidth(_currentRect) * 0.552 * (1 + 1.6 * fabs(_progress - 0.5));
-    CGFloat offset2 = 0.5 * CGRectGetWidth(_currentRect) * 0.552 * (1 - 1 * fabs(_progress - 0.5));
-    CGFloat offset3 = CGRectGetWidth(_currentRect) / 3.6 * (1 - 1.0 * fabs(_progress - 0.5));
-    CGFloat offset4 = CGRectGetWidth(_currentRect) / 3.6 * (1 - 1.2 * fabs(_progress - 0.5));
-    CGFloat temp;
-    if (!onStation) {
-        temp = offset1;
-        offset1 = offset4;
-        offset4 = temp;
-        
-        temp = offset2;
-        offset2 = offset3;
-        offset3 = offset2;
-    }
+    CGFloat offset1 = 0.5 * CGRectGetWidth(_currentRect) * 0.552;
+    CGFloat offset2 = 0.5 * CGRectGetWidth(_currentRect) * 0.552 * (1 - 1.2 * fabs(_progress - 0.5));
+    CGFloat offset3 = 0.5 * CGRectGetWidth(_currentRect) * 0.552;
+    CGFloat offset4 = 0.5 * CGRectGetWidth(_currentRect) * 0.552 * (1 - 1.2 * fabs(_progress - 0.5));
     
     
     //设置3.6 出来的弧度最像圆形
@@ -53,9 +43,9 @@
     
     //8个控制点实际的偏移距离。 The real distance of 8 control points
     CGFloat extra = (CGRectGetWidth(_currentRect) * 2 / 5) * _factor;
-    CGPoint pointA = CGPointMake(rectCenter.x ,CGRectGetMinY(_currentRect) + extra);
+    CGPoint pointA = CGPointMake(rectCenter.x + (onStation ? extra : -extra),CGRectGetMinY(_currentRect) + extra);
     CGPoint pointB = CGPointMake(onStation ? rectCenter.x + CGRectGetWidth(_currentRect) / 2 : rectCenter.x + CGRectGetWidth(_currentRect)/2 ,rectCenter.y);
-    CGPoint pointC = CGPointMake(rectCenter.x ,rectCenter.y + CGRectGetHeight(_currentRect)/2 - extra);
+    CGPoint pointC = CGPointMake(rectCenter.x + (onStation ? extra : -extra) ,rectCenter.y + CGRectGetHeight(_currentRect)/2 - extra);
     CGPoint pointD = CGPointMake(onStation ? CGRectGetMinX(_currentRect) : CGRectGetMinX(_currentRect), rectCenter.y);
     
     
@@ -83,6 +73,7 @@
     CGContextAddPath(ctx, ovalPath.CGPath);
     CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
     CGContextFillPath(ctx);
+    
 }
 
 @end
