@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     _drap = [DrapLayer layer];
-    _drap.frame = CGRectMake(10, 50, 200, 200);
+    _drap.frame = CGRectMake(100, 50, 200, 200);
 //    _drap.backgroundColor = [UIColor grayColor].CGColor;
     [self.view.layer addSublayer:_drap];
     

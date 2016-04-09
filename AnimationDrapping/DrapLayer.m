@@ -10,6 +10,7 @@
 @interface DrapLayer()
 @property (nonatomic) CGRect currentRect;
 @property (nonatomic) CGFloat factor;
+@property (nonatomic) CGPoint originPoint;
 @end
 @implementation DrapLayer
 
@@ -28,10 +29,14 @@
     [super setFrame:frame];
     _currentRect = self.bounds;
     _progress = 0.5f;
+    _originPoint = self.position;
     [self setNeedsDisplay];
 }
 - (void)drawInContext:(CGContextRef)ctx {
     BOOL onStation = (_progress - 0.5) > 0;
+    
+    self.position = CGPointMake((_progress - 0.5) * CGRectGetWidth(_currentRect) + _originPoint.x, _originPoint.y);
+    
     CGFloat offset1 = 0.5 * CGRectGetWidth(_currentRect) * 0.552;
     CGFloat offset2 = 0.5 * CGRectGetWidth(_currentRect) * 0.552 * (1 - 1.2 * fabs(_progress - 0.5));
     CGFloat offset3 = 0.5 * CGRectGetWidth(_currentRect) * 0.552;
@@ -73,7 +78,6 @@
     CGContextAddPath(ctx, ovalPath.CGPath);
     CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
     CGContextFillPath(ctx);
-    
 }
 
 @end
